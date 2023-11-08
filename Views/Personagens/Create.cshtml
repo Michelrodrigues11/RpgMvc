@@ -1,0 +1,29 @@
+@model RpgMvc.Models.PersonagemViewModel
+@{
+    ViewBag.Title = "Novo Personagem";
+}
+<!-- Insitra aqui os TempData de Sucesso e Erro para evitar tela da morte -->
+
+<h2>Criar um Novo Personagem</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-content">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.Classe, Html.GetEnumSelectList(typeof(RpgMvc.Models.Enuns.ClasseEnum)), 
+                "---Selecione---", new {@class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+             </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Retornar", "Index")
+</div>
