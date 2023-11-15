@@ -52,4 +52,14 @@
         </td>
       </tr>
     }
+    
 </table>
+    @Html.ActionLink("Clique aqui para um embate com armas!!!", "Index", "Disputas",
+    null, new {@class = "btn btn-warning"})<br><br>
+
+    @Html.ActionLink("Clique aqui para um embate com habilidades!!!", "IndexHabilidades", "Disputas", null, new {@class = "btn btn-dark"})<br><br>
+
+    @Html.ActionLink("Clique aqui para um embate em grupo!!!", "DisputaGeral", "Disputa", null, new {@class = "btn btn-danger"})<br><br>
+
+    @Html.ActionLink("Zerar ranking/restaurar pontos de vida", "ZerarRankingRestaurarVidas", "Personagens",
+    null, new {@class = "btn btn-secondary", onclick = "return confirm('Deseja realmente realizar esta ação ?');"})<br><br>
