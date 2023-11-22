@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/Disputas/IndexDisputas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXhEaXNwdXRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/Disputas/IndexHabilidades.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0YXNcSW5kZXhIYWJpbGlkYWRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/PersonagemHabilidades/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbUhhYmlsaWRhZGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/PersonagemHabilidades/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWdlbUhhYmlsaWRhZGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/2 Módulo/2DS_Michel/DS/RpgMvc/Views/Personagens/Create.cshtml]
