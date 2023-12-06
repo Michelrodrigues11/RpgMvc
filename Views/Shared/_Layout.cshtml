@@ -10,6 +10,22 @@
 </head>
 <body>
     <header>
+        @{
+
+            var nomeSessao = new Byte[20];
+            bool nomeOK = Context.Session.TryGetValue("SessionIdUsuario", out nomeSessao);
+            string sessao = string.Empty;
+
+            var nomeSessaoPerfil = new Byte[20];
+            bool perfilOK = Context.Session.TryGetValue("SessionPerfilUsuario", out nomeSessaoPerfil);
+            string sessaoPerfil = string.Empty;
+            if (nomeOK)
+                sessao = System.Text.Encoding.UTF8.GetString(nomeSessao);
+
+            if (perfilOK)
+                sessaoPerfil = System.Text.Encoding.UTF8.GetString(nomeSessaoPerfil);
+
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RpgMvc</a>
@@ -19,23 +35,41 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @if(!string.IsNullOrEmpty(sessao))
+                        {
+                            <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Personagens" asp-action="Index">Personagens</a>
                         </li>
-                        <li class="nav-item">
+                        @if (sessaoPerfil == "Admin")
+                        {
+                             <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Disputas" asp-action="IndexDisputas">Disputas</a>
                         </li>
+                        }
+                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="IndexInformacoes">Informações do Usuário</a>
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        }
                     </ul>
-                    <partial name="_LoginPartialRpg"/>
+                    @if (string.IsNullOrEmpty(sessao))
+                    {
+                        <partial name="_LoginPartialRpg.cshtml"/>
+                    }
+                   else
+                   {
+                    <a class="" asp-area="" asp-controller="Usuarios" asp-action="Sair">Sair</a>
+                   }
                 </div>
             </div>
         </nav>
+        }
     </header>
     <div class="container">
         <main role="main" class="pb-3">

@@ -44,29 +44,29 @@
                                 @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.Id, new
-                                        {
-                                            htmlAttributes = new
-                                            {
-                                                @class = "form-control",
-                                                @readonly = "readonly"
-                                            }
-                                        })
+                                {
+                                htmlAttributes = new
+                                {
+                                @class = "form-control",
+                                @readonly = "readonly"
+                                }
+                                })
                                 </div>
                             </div><br />
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Email, htmlAttributes: new
-                                    {
-                                        @class = "control-label col-md-2"
-                                    })
+                            {
+                            @class = "control-label col-md-2"
+                            })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.Email, new
-                                        {
-                                            htmlAttributes = new
-                                            {
-                                                @class =
-                                             "form-control"
-                                            }
-                                        })
+                                {
+                                htmlAttributes = new
+                                {
+                                @class =
+                                "form-control"
+                                }
+                                })
                                 </div>
                             </div><br />
                             <div class="form-group">
@@ -92,6 +92,33 @@
         Alterar Senha
     </button>
 
+    <hr/>
+    @using (Html.BeginForm("EnviarFoto", "Usuarios", FormMethod.Post, new
+    {
+        enctype =
+    "multipart/form-data",
+        id = "formFoto"
+    }))
+    {
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Envio de foto</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                @Html.TextBox("file", "", new { type = "file" })
+                @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class =
+            "form-control" } })
+            </div>
+            <div class="col-sm-3">
+                <button id="FotoSubmit" type="submit" value="Enviar Foto" class="btn btnprimary">
+                    Enviar Foto
+                </button>
+            </div>
+        </div>
+    }
+    <hr>
     <script>function AbrirModalAlteracaoSenha() {
             $.ajax({
                 url: "@Url.Action("ObterDadosAlteracaoSenha", "Usuarios")",
@@ -100,7 +127,7 @@
                     $("#modalExterno .modal-dialog .modal-content .modal-body").html(retorno);
                     $("#modalExterno").modal("show");
                 }
-            });
+           });
         } </script>
 
     <!-- Modal externo -->
@@ -123,3 +150,13 @@
             </div>
         </div>
     </div>
+    @if (Model.Foto != null)
+    {
+        var base64 = Convert.ToBase64String(Model.Foto);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        <dt>@Html.DisplayNameFor(model => model.Foto)</dt>
+        <img src="@imgSrc" title="@Model.Username" width="100" height="132" />
+        <br />
+        @Html.ActionLink("Baixar Foto", "BaixarFoto", "Usuarios", null, new { @title =
+    "Baixar foto" })
+    }
